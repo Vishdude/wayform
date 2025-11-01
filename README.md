@@ -5,3 +5,4 @@ This add-on uses GeminiAPI to mark the answers. The user will need to enter his 
 1) Better Pop Up
 2) Support Multiple Select questions
 3) Image support
+I would appreciate your help upon working on these too!
