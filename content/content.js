@@ -105,26 +105,15 @@ function main(key){
 			starton = i-batchcnt;
 			getresponse(fullquestion+"\n\nSelect me the right options out of all these questions and return me the answers as a list seperated by tab spaces, anything after 'option <number>: ' is the full option and you should return me that option excluding the 'option <number>:' alone but make sure to include anything after that no matter what, don't think you are cool on including your own answers I need the exact answer that comes after the option because it will mark the answers only if both the existing element and your answer is same so please include anything that comes after 'option <number>: ', don't give me any explanations because your response will be added into code automatically. Please do not exclude anything after 'option <number>: ' while selecting the option. DO NOT EXCLUDE ANYTHING AFTER 'option <number>: ' for example:\n 'option 1: b) Rs 10,000' must be returned as 'b) 10,000'. I want the options to be returned AS IS and do not ignore any questions. \n REMEMBER! YOUR RESPONSE WILL BE DIRECTLY IMPORTED INTO SCRIPT SO DO NOT GIVE ANY ADDITIONAL TEXTS!!", starton, (starton+batchcnt), apikey);
 			fullquestion = "";
-
 		}
+		
 		if (question[i]){
-		if(question[i].querySelectorAll("label").length > 0){
-			fullquestion += `\nselect one out of ${question[i].querySelectorAll("label").length} options \n${question[i].querySelector("span").innerText}`;
-			for (let j = 0; j < question[i].querySelectorAll("label").length; j++){
-				fullquestion += `\nOption ${j+1}: ${question[i].querySelectorAll("label")[j].innerText}`;
+			if(question[i].querySelectorAll("label").length > 0){
+				fullquestion += `\nselect one out of ${question[i].querySelectorAll("label").length} options \n${question[i].querySelector("span").innerText}`;
+				for (let j = 0; j < question[i].querySelectorAll("label").length; j++){
+					fullquestion += `\nOption ${j+1}: ${question[i].querySelectorAll("label")[j].innerText}`;
+				}
 			}
-
-		}}
+		}
 	}
-
-//	for(let i = 0; i < question.length; i++){
-//		if(question[i].querySelectorAll("label").length > 0){
-//			fullquestion += `\nselect one out of ${question[i].querySelectorAll("label").length} options \n${question[i].querySelector("span").innerText}`;
-//			for (let j = 0; j < question[i].querySelectorAll("label").length; j++){
-//				fullquestion += `\nOption ${j+1}: ${question[i].querySelectorAll("label")[j].innerText}`;
-//			}
-//		}
-//	}
-//	getresponse(fullquestion+"\n\nSelect me the right options out of all these questions and return me the answers as a list seperated by tab spaces, anything after 'option <number>: ' is the full option and you should return me that option excluding the 'option <number>:' alone but make sure to include anything after that no matter what, don't think you are cool on including your own answers I need the exact answer that comes after the option because it will mark the answers only if both the existing element and your answer is same so please include anything that comes after 'option <number>: ', don't give me any explanations because your response will be added into code automatically. Please do not exclude anything after 'option <number>: ' while selecting the option. DO NOT EXCLUDE ANYTHING AFTER 'option <number>: ' for example:\n 'option 1: b) Rs 10,000' must be returned as 'b) 10,000'. I want the options to be returned AS IS and do not ignore any questions. \n REMEMBER! YOUR RESPONSE WILL BE DIRECTLY IMPORTED INTO SCRIPT SO DO NOT GIVE ANY ADDITIONAL TEXTS!!",starton, question.length, apikey);
-
 }
